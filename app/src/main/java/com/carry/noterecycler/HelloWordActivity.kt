@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.databinding.DataBindingUtil
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.carry.noterecycler.adapters.HelloWorldAdapter
 import com.carry.noterecycler.databinding.ActivityHelloWordBinding
 
 class HelloWordActivity : AppCompatActivity() {
@@ -19,7 +21,8 @@ class HelloWordActivity : AppCompatActivity() {
         addWindowInsets()
         setUpRvList()
     }
-    private fun  addWindowInsets(){
+
+    private fun addWindowInsets() {
         ViewCompat.setOnApplyWindowInsetsListener(mBinding.root) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -27,9 +30,11 @@ class HelloWordActivity : AppCompatActivity() {
         }
     }
 
-    private fun setUpRvList(){
+    private fun setUpRvList() {
+        val list = arrayListOf("i", "am", "recyclerview", "item")
         mBinding.rvList.run {
-
+            layoutManager = LinearLayoutManager(this@HelloWordActivity)
+            adapter = HelloWorldAdapter(data = list)
         }
     }
 }
