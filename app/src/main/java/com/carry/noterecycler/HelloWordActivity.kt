@@ -37,4 +37,9 @@ class HelloWordActivity : AppCompatActivity() {
             adapter = HelloWorldAdapter(data = list)
         }
     }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        finish()
+    }
 }
