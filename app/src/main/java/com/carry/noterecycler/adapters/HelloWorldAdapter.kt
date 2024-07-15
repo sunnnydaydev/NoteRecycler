@@ -62,6 +62,13 @@ data class HelloWorldAdapter(
         super.onViewDetachedFromWindow(holder)
         Log.d("HelloWorldAdapter","onViewDetachedFromWindow:")
     }
+
+    override fun onViewRecycled(holder: HelloWorldViewHolder) {
+        Log.d("HelloWorldAdapter","onViewRecycled:${holder.binding.tvText.text}")
+        holder.binding.tvText.text = "adfasf"
+        super.onViewRecycled(holder)
+
+    }
 }
 
 data class HelloWorldViewHolder(val binding: LayoutHelloWorldAdapterBinding) :

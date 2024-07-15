@@ -31,7 +31,11 @@ class HelloWordActivity : AppCompatActivity() {
     }
 
     private fun setUpRvList() {
-        val list = arrayListOf("i", "am", "recyclerview", "item")
+        val list = mutableListOf<String>()
+        repeat(100) { i ->
+            list.add("$i")
+        }
+
         mBinding.rvList.run {
             layoutManager = LinearLayoutManager(this@HelloWordActivity)
             adapter = HelloWorldAdapter(data = list)
