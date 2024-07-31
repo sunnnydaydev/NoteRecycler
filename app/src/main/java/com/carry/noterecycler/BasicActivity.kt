@@ -7,7 +7,6 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.databinding.DataBindingUtil
 import com.carry.noterecycler.databinding.ActivityBasicBinding
-import com.carry.noterecycler.databinding.ActivityMainBinding
 
 class BasicActivity : AppCompatActivity() {
     private val mBinding:  ActivityBasicBinding by lazy {
