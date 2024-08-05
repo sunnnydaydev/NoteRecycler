@@ -19,10 +19,17 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         addWindowInsets()
-        mBinding.tvHelloWorld.setOnClickListener {
-            Log.d("MainActivity","tvHelloWorld")
-            startActivity(Intent(this,HelloWordActivity::class.java))
+        mBinding.run {
+            tvHelloWorld.setOnClickListener {
+                Log.d("MainActivity","tvHelloWorld")
+                startActivity(Intent(this@MainActivity,HelloWordActivity::class.java))
+            }
+
+            tvLayoutManager.setOnClickListener {
+                startActivity(Intent(this@MainActivity,LayoutManagerActivity::class.java))
+            }
         }
+
     }
 
     private fun addWindowInsets() {

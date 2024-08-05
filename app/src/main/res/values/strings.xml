@@ -2,4 +2,6 @@
     <string name="app_name">NoteRecycler</string>
     <string name="hello_world">入门</string>
     <string name="default_text">default</string>
+    <string name="layout_manager">layout Manager</string>
+    <string name="this_is_an_icon">this is an icon</string>
 </resources>
