@@ -1,5 +1,6 @@
 package com.carry.noterecycler
 
+import android.graphics.Color
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -9,11 +10,10 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.GridLayoutManager.SpanSizeLookup
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView.LayoutManager
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.carry.noterecycler.adapters.CardAdapter
-import com.carry.noterecycler.adapters.HelloWorldAdapter
+import com.carry.noterecycler.adapters.StaggeredAdapter
 import com.carry.noterecycler.databinding.ActivityLayoutManagerBinding
-import com.carry.noterecycler.databinding.ActivityMainBinding
 
 class LayoutManagerActivity : AppCompatActivity() {
     private val mBinding: ActivityLayoutManagerBinding by lazy {
@@ -27,10 +27,11 @@ class LayoutManagerActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        setUpRvList()
+        // setUpGridRvList()
+        setupStaggeredRvList()
     }
 
-    private fun setUpRvList() {
+    private fun setUpGridRvList() {
         val list = mutableListOf<String>()
         repeat(100) { i ->
             list.add("$i")
@@ -50,7 +51,27 @@ class LayoutManagerActivity : AppCompatActivity() {
         mBinding.rvList.run {
             layoutManager = manager
             adapter = CardAdapter(list)
+        }
+    }
 
+    private fun setupStaggeredRvList(){
+        val list = listOf(
+            Color.RED,
+            Color.BLUE,
+            Color.CYAN,
+            Color.GRAY,
+            Color.DKGRAY,
+            Color.BLACK,
+            Color.GREEN,
+            Color.LTGRAY,
+            Color.MAGENTA,
+            Color.WHITE,
+            Color.YELLOW,
+        )
+        val manager = StaggeredGridLayoutManager(2,LinearLayoutManager.VERTICAL)
+        mBinding.rvList.run {
+            layoutManager = manager
+            adapter = StaggeredAdapter(list)
         }
     }
 }

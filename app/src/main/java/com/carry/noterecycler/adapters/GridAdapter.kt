@@ -6,7 +6,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView.Adapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.carry.noterecycler.R
-import com.carry.noterecycler.databinding.LayoutLayoutManagerAdapterBinding
+import com.carry.noterecycler.databinding.LayoutGridAdapterBinding
 
 /**
  * Create by SunnyDay /06/21 22:28:50
@@ -15,9 +15,9 @@ data class CardAdapter(val data: List<String>) : Adapter<CardViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CardViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
-        val binding: LayoutLayoutManagerAdapterBinding = DataBindingUtil.inflate(
+        val binding: LayoutGridAdapterBinding = DataBindingUtil.inflate(
             layoutInflater,
-            R.layout.layout_layout_manager_adapter,
+            R.layout.layout_grid_adapter,
             parent,
             false
         )
@@ -34,4 +34,4 @@ data class CardAdapter(val data: List<String>) : Adapter<CardViewHolder>() {
 
 }
 
-data class CardViewHolder(val binding: LayoutLayoutManagerAdapterBinding) : ViewHolder(binding.root)
+data class CardViewHolder(val binding: LayoutGridAdapterBinding) : ViewHolder(binding.root)
