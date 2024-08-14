@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.carry.noterecycler.adapters.CardAdapter
 import com.carry.noterecycler.adapters.StaggeredAdapter
 import com.carry.noterecycler.databinding.ActivityLayoutManagerBinding
+import com.carry.noterecycler.entity.mockGridDtoList
 
 class LayoutManagerActivity : AppCompatActivity() {
     private val mBinding: ActivityLayoutManagerBinding by lazy {
@@ -27,15 +28,11 @@ class LayoutManagerActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        // setUpGridRvList()
-        setupStaggeredRvList()
+        setUpGridRvList()
+       // setupStaggeredRvList()
     }
 
     private fun setUpGridRvList() {
-        val list = mutableListOf<String>()
-        repeat(100) { i ->
-            list.add("$i")
-        }
 
         val manager = GridLayoutManager(this@LayoutManagerActivity,4,LinearLayoutManager.VERTICAL,false)
         manager.spanSizeLookup = object : SpanSizeLookup() {
@@ -50,7 +47,7 @@ class LayoutManagerActivity : AppCompatActivity() {
         }
         mBinding.rvList.run {
             layoutManager = manager
-            adapter = CardAdapter(list)
+            adapter = CardAdapter(mockGridDtoList())
         }
     }
 
