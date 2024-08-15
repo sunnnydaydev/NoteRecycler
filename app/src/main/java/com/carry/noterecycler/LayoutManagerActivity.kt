@@ -15,6 +15,7 @@ import com.carry.noterecycler.adapters.CardAdapter
 import com.carry.noterecycler.adapters.StaggeredAdapter
 import com.carry.noterecycler.databinding.ActivityLayoutManagerBinding
 import com.carry.noterecycler.entity.mockGridDtoList
+import com.carry.noterecycler.entity.mockStaggeredList
 
 class LayoutManagerActivity : AppCompatActivity() {
     private val mBinding: ActivityLayoutManagerBinding by lazy {
@@ -28,12 +29,11 @@ class LayoutManagerActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        setUpGridRvList()
-       // setupStaggeredRvList()
+        //setUpGridRvList()
+        setupStaggeredRvList()
     }
 
     private fun setUpGridRvList() {
-
         val manager = GridLayoutManager(this@LayoutManagerActivity,4,LinearLayoutManager.VERTICAL,false)
         manager.spanSizeLookup = object : SpanSizeLookup() {
             override fun getSpanSize(position: Int): Int {
@@ -52,23 +52,10 @@ class LayoutManagerActivity : AppCompatActivity() {
     }
 
     private fun setupStaggeredRvList(){
-        val list = listOf(
-            Color.RED,
-            Color.BLUE,
-            Color.CYAN,
-            Color.GRAY,
-            Color.DKGRAY,
-            Color.BLACK,
-            Color.GREEN,
-            Color.LTGRAY,
-            Color.MAGENTA,
-            Color.WHITE,
-            Color.YELLOW,
-        )
-        val manager = StaggeredGridLayoutManager(2,LinearLayoutManager.VERTICAL)
+        val manager = StaggeredGridLayoutManager(4,LinearLayoutManager.VERTICAL)
         mBinding.rvList.run {
             layoutManager = manager
-            adapter = StaggeredAdapter(list)
+            adapter = StaggeredAdapter(mockStaggeredList())
         }
     }
 }

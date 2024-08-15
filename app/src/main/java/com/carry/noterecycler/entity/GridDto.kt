@@ -10,7 +10,7 @@ data class GridDto(
      val bgColor: Int
 )
 
-private fun colorList() = listOf(
+fun colorList() = listOf(
     Color.RED,
     Color.BLUE,
     Color.CYAN,

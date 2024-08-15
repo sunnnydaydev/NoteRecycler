@@ -8,12 +8,15 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp">
+        android:layout_height="wrap_content">
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/img"
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_text"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="150dp"
+            android:text="@string/this_is_an_icon"
+            android:textColor="@color/white"
+            android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

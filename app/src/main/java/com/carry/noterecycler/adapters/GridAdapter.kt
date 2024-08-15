@@ -2,6 +2,7 @@ package com.carry.noterecycler.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView.Adapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
@@ -29,6 +30,10 @@ data class CardAdapter(val data: List<GridDto>) : Adapter<CardViewHolder>() {
         holder.binding.run {
             tvText.text = data[position].text
             tvText.setBackgroundColor(data[position].bgColor)
+
+            val params = tvText.layoutParams as ConstraintLayout.LayoutParams
+            params.height =  (100..1000).random()
+            tvText.layoutParams = params
         }
     }
 
