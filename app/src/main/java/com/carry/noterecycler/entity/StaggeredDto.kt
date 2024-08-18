@@ -8,10 +8,5 @@ data class StaggeredDto(
     val bgColor: Int
 )
 
-fun mockStaggeredList() = colorList().mapIndexed { index, bgColor ->
-    StaggeredDto(
-        text = index.toString(),
-        bgColor = bgColor
-    )
-}
+
 

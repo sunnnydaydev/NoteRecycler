@@ -1,6 +1,5 @@
 package com.carry.noterecycler
 
-import android.graphics.Color
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -12,10 +11,14 @@ import androidx.recyclerview.widget.GridLayoutManager.SpanSizeLookup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.carry.noterecycler.adapters.CardAdapter
+import com.carry.noterecycler.adapters.CarouseAdapter
 import com.carry.noterecycler.adapters.StaggeredAdapter
 import com.carry.noterecycler.databinding.ActivityLayoutManagerBinding
+import com.carry.noterecycler.entity.mockCarouseList
 import com.carry.noterecycler.entity.mockGridDtoList
 import com.carry.noterecycler.entity.mockStaggeredList
+import com.google.android.material.carousel.CarouselLayoutManager
+import com.google.android.material.carousel.CarouselSnapHelper
 
 class LayoutManagerActivity : AppCompatActivity() {
     private val mBinding: ActivityLayoutManagerBinding by lazy {
@@ -30,7 +33,8 @@ class LayoutManagerActivity : AppCompatActivity() {
             insets
         }
         //setUpGridRvList()
-        setupStaggeredRvList()
+       // setupStaggeredRvList()
+        setupCarouseRvList()
     }
 
     private fun setUpGridRvList() {
@@ -56,6 +60,16 @@ class LayoutManagerActivity : AppCompatActivity() {
         mBinding.rvList.run {
             layoutManager = manager
             adapter = StaggeredAdapter(mockStaggeredList())
+        }
+    }
+
+    private fun setupCarouseRvList(){
+        val manager = CarouselLayoutManager()
+        val snapHelper = CarouselSnapHelper()
+        mBinding.rvList.run {
+            layoutManager = manager
+            adapter = CarouseAdapter(mockCarouseList())
+            snapHelper.attachToRecyclerView(this)
         }
     }
 }
