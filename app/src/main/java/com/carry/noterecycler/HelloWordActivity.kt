@@ -1,12 +1,16 @@
 package com.carry.noterecycler
 
 import android.os.Bundle
+import android.util.Log
+import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.databinding.DataBindingUtil
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.carry.noterecycler.adapters.HelloWorldAdapter
 import com.carry.noterecycler.databinding.ActivityHelloWordBinding
 
@@ -38,7 +42,9 @@ class HelloWordActivity : AppCompatActivity() {
 
         mBinding.rvList.run {
             layoutManager = LinearLayoutManager(this@HelloWordActivity)
+            addItemDecoration(DividerItemDecoration(context,RecyclerView.VERTICAL))
             adapter = HelloWorldAdapter(data = list)
+
         }
     }
 
